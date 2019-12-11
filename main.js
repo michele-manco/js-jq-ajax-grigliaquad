@@ -12,6 +12,17 @@ $(document).ready(function(){
         'method': 'GET',
         'success': function(data) {
           console.log(data);
+          numero = data.response
+          console.log('il numero chiamato è ' + numero);
+            if (numero <= 5 ) {
+              console.log('win');
+              $('.quadrato').toggleClass('.yellow');
+
+            } else {
+              console.log('loose');
+              $('.quadrato').toggleClass('.green')
+            }
+
         },
         'error':function() {
 
