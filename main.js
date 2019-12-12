@@ -7,20 +7,23 @@
 // Nome repo: js-jq-ajax-grigliaquad
 $(document).ready(function(){
     $('.quadrato').click(function(){
+      var that = $(this);
       $.ajax({
         'url': 'https://flynn.boolean.careers/exercises/api/random/int',
         'method': 'GET',
         'success': function(data) {
           console.log(data);
           numero = data.response
+
           console.log('il numero chiamato è ' + numero);
             if (numero <= 5 ) {
-              console.log('win');
-              $('.quadrato').toggleClass('.yellow');
+              console.log('yellow');
+              $(that).addClass('yellow').text(numero);
+
 
             } else {
-              console.log('loose');
-              $('.quadrato').toggleClass('.green')
+              console.log('green');
+              $(that).addClass('green').text(numero)
             }
 
         },
